@@ -1,0 +1,20 @@
+service: gcf-service # NOTE: Don't put the word "google" in here
+
+provider:
+  name: google
+  runtime: nodejs4.3
+
+functions:
+  fist:
+    handler: pubSub
+    events:
+      - pubSub: someTopicName
+  second:
+    handler: http
+    events:
+      - http: true
+  # NOTE: Please create the bucket first, then comment this out and deploy again
+  #third:
+  #  handler: bucket
+  #  events:
+  #    - bucket: my-serverless-test-bucket
