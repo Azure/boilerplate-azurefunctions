@@ -1,8 +1,13 @@
 service: gcf-service # NOTE: Don't put the word "google" in here
 
+plugins:
+  - serverless-google-cloudfunctions
+
 provider:
   name: google
   runtime: nodejs4.3
+  project: my-project-1234
+  credentials: ~/.gcloud/keyfile.json
 
 functions:
   fist:
