@@ -1,4 +1,4 @@
-service: azure-functions-service # NOTE: Don't put the word "google" in here
+service: azure-functions-service 
 
 provider:
   name: azure
@@ -7,8 +7,6 @@ provider:
 plugins:
   - serverless-azure-functions
 
-# needs more granular excluding in production as only the serverless provider npm
-# package and it's dependencies should be excluded (and not the whole node_modules directory)
 package:
   exclude:
     - node_modules/**
@@ -21,8 +19,4 @@ functions:
     handler: http
     events:
       - http: true
-  # NOTE: Please create the bucket first, then comment this out and deploy again
-  #third:
-  #  handler: bucket
-  #  events:
-  #    - bucket: my-serverless-test-bucket
+ 
