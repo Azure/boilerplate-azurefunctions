@@ -1,5 +1,5 @@
 {
-  "name": "boilerplate-googlecloudfunctions-nodejs",
+  "name": "boilerplate-azurefunctions",
   "version": "0.1.0",
   "description": "",
   "main": "index.js",
@@ -9,6 +9,6 @@
   "author": "serverless.com",
   "license": "MIT",
   "dependencies": {
-    "serverless-google-cloudfunctions": "git+https://github.com/serverless/serverless-google-cloudfunctions.git"
+    "serverless-azure-functions": "file:..\serverless-azure-functions"
   }
 }
