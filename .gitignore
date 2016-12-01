@@ -4,9 +4,6 @@
 tmp
 .coveralls.yml
 
-# Google
-keyfile.json
-
 # Logs
 *.log
 

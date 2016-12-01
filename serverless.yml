@@ -3,7 +3,12 @@ service: azure-functions-service
 provider:
   name: azure
   runtime: nodejs4.3
-  
+  subscriptionId: YourSubscriptionID
+  resourceGroupName: YourResourceGroupName
+  deploymentName: YourDeploymentName
+  functionAppName: YourFunctionAppName
+  gitUrl: GitUrlWithFunctionCode.Note URL needs to include git accesscode
+
 plugins:
   - serverless-azure-functions
 
@@ -15,7 +20,7 @@ package:
     - .git/**
 
 functions:
-  first:
+  httpcsharp:
     handler: http
     events:
       - http: true
