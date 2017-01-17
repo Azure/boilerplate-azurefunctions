@@ -2,13 +2,13 @@ service: azure-functions-service
 
 provider:
   name: azure
-  runtime: nodejs4.3
-  subscriptionId: YourSubscriptionID
-  resourceGroupName: YourResourceGroupName
-  deploymentName: YourDeploymentName
+  subscriptionId: YourAzureSubscriptionID
+  servicePrincipalTenantId: servicePrincipalTenantId
+  servicePrincipalClientId: servicePrincipalClientId
+  servicePrincipalPassword: servicePrincipalPassword
   functionAppName: YourFunctionAppName
+  location: West US
   gitUrl: GitUrlWithFunctionCode.Note URL needs to include git accesscode
-
 plugins:
   - serverless-azure-functions
 
@@ -21,7 +21,8 @@ package:
 
 functions:
   httpcsharp:
-    handler: http
-    events:
-      - http: true
+    triggerType: httpTrigger
+  queueTriggerCSharp:
+    triggerType: queueTrigger
+     
  

@@ -1,0 +1,44 @@
+service: azure-functions-service 
+
+provider:
+    azure:
+        subscriptionId: <azure subscriptionId>
+        resourceGroupName: ${self:service}-rg
+        region: "west us"
+        deploymentName: ${self:service}-deployment
+        sourceControl: <gitUrl>
+        # more options to customize arm template - storage account #
+        # users can specify an arm template#
+        armTemplate: "<azure arm template file>"
+plugins:
+  - serverless-azure-functions
+
+package:
+  exclude:
+    - node_modules/**
+    - .gitignore
+    - package.json
+    - .git/**
+
+functions:
+    azure:
+        httpcsharp:
+        code: run.csx or <Template Name: HttpCSharpTrigger>
+        bindings: <function.json>
+    
+        queueTriggerJS:
+        code: index.js
+        bindings:
+            myBlob:
+                type: "blobTrigger",
+                direction: "in",
+                path: "samples-workitems/{name}",
+                connection: "AzureWebJobsDashboard"
+            notification:
+                type: "notificationHub",
+                hubName: "myhubname",
+                connection: "NOTIFICATIONHUB_ConnectionString",
+                direction: "out"
+    
+    
+ 
