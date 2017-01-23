@@ -20,9 +20,15 @@ package:
     - .git/**
 
 functions:
-  httpcsharp:
-    triggerType: httpTrigger
-  queueTriggerCSharp:
-    triggerType: queueTrigger
+  httpjs: 
+     handler: templates/handler.hello
+     events: 
+       - http: true
+       - authLevel: anonymous
+  queuejs: 
+     handler: templates/handler.helloQueue
+     events: 
+       - queue: js-queue-serverless
+           
      
  
