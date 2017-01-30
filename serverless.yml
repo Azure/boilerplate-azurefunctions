@@ -2,13 +2,11 @@ service: azure-functions-service
 
 provider:
   name: azure
-  subscriptionId: YourAzureSubscriptionID
-  servicePrincipalTenantId: servicePrincipalTenantId
-  servicePrincipalClientId: servicePrincipalClientId
-  servicePrincipalPassword: servicePrincipalPassword
-  functionAppName: YourFunctionAppName
+  subscriptionId: azureSubId
+  servicePrincipalTenantId: azureServicePrincipalTenantId
+  servicePrincipalClientId: azureservicePrincipalClientId
+  servicePrincipalPassword: azureServicePrincipalPassword
   location: West US
-  gitUrl: GitUrlWithFunctionCode.Note URL needs to include git accesscode
 plugins:
   - serverless-azure-functions
 
