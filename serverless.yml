@@ -1,4 +1,4 @@
-service: azure-functions-service 
+service: azure-functions-app
 
 provider:
   name: azure
@@ -7,6 +7,11 @@ provider:
   servicePrincipalClientId: azureservicePrincipalClientId
   servicePrincipalPassword: azureServicePrincipalPassword
   location: West US
+  armTemplate:
+     file: YourARMTemplate.json
+     parameters:
+      VariableNameToUserInArmTemplate: Value
+
 plugins:
   - serverless-azure-functions
 
@@ -22,11 +27,34 @@ functions:
      handler: templates/handler.hello
      events: 
        - http: true
-       - authLevel: anonymous
+         x-azure-settings:
+           authLevel : anonymous
+       - queue: YourQueueName
+         x-azure-settings:
+           connection : StorageAppSettingName
+           
   queuejs: 
      handler: templates/handler.helloQueue
      events: 
-       - queue: js-queue-serverless
-           
+       - queue: YourQueueName
+         x-azure-settings:
+           connection : StorageAppSettingName
+       - blob:
+         x-azure-settings:
+           name: bindingName
+           direction: in
+   
+  httpwebhookjs: 
+     handler: templates/handler.hello
+     events: 
+       - http: true
+         x-azure-settings:
+           webHookType : gitHub
+  eventHubjs: 
+     handler: templates/handler.hello
+     events: 
+       - eventHub:
+         x-azure-settings:
+           connection : AppSettingSetViaArmTemplate
      
  
