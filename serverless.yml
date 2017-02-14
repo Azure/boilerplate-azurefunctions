@@ -2,15 +2,11 @@ service: azure-functions-app
 
 provider:
   name: azure
-  subscriptionId: azureSubId
-  servicePrincipalTenantId: azureServicePrincipalTenantId
-  servicePrincipalClientId: azureservicePrincipalClientId
-  servicePrincipalPassword: azureServicePrincipalPassword
   location: West US
-  armTemplate:
-     file: YourARMTemplate.json
-     parameters:
-      VariableNameToUserInArmTemplate: Value
+  #armTemplate:
+     #file: YourARMTemplate.json
+     #parameters:
+      #VariableNameToUserInArmTemplate: Value
 
 plugins:
   - serverless-azure-functions
@@ -29,9 +25,6 @@ functions:
        - http: true
          x-azure-settings:
            authLevel : anonymous
-       - queue: YourQueueName
-         x-azure-settings:
-           connection : StorageAppSettingName
            
   queuejs: 
      handler: templates/handler.helloQueue
@@ -50,11 +43,11 @@ functions:
        - http: true
          x-azure-settings:
            webHookType : gitHub
-  eventHubjs: 
-     handler: templates/handler.hello
-     events: 
-       - eventHub:
-         x-azure-settings:
-           connection : AppSettingSetViaArmTemplate
+  #eventHubjs: 
+     #handler: templates/handler.hello
+     #events: 
+       #- eventHub:
+       #  x-azure-settings:
+       #   connection : AppSettingSetViaArmTemplate
      
  
