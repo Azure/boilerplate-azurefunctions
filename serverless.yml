@@ -1,14 +1,13 @@
-service: azure-functions-service 
+service: azure-functions-app
 
 provider:
   name: azure
-  subscriptionId: YourAzureSubscriptionID
-  servicePrincipalTenantId: servicePrincipalTenantId
-  servicePrincipalClientId: servicePrincipalClientId
-  servicePrincipalPassword: servicePrincipalPassword
-  functionAppName: YourFunctionAppName
   location: West US
-  gitUrl: GitUrlWithFunctionCode.Note URL needs to include git accesscode
+  #armTemplate:
+     #file: YourARMTemplate.json
+     #parameters:
+      #VariableNameToUserInArmTemplate: Value
+
 plugins:
   - serverless-azure-functions
 
@@ -20,9 +19,35 @@ package:
     - .git/**
 
 functions:
-  httpcsharp:
-    triggerType: httpTrigger
-  queueTriggerCSharp:
-    triggerType: queueTrigger
+  httpjs: 
+     handler: templates/handler.hello
+     events: 
+       - http: true
+         x-azure-settings:
+           authLevel : anonymous
+           
+  queuejs: 
+     handler: templates/handler.helloQueue
+     events: 
+       - queue: YourQueueName
+         x-azure-settings:
+           connection : StorageAppSettingName
+       - blob:
+         x-azure-settings:
+           name: bindingName
+           direction: in
+   
+  httpwebhookjs: 
+     handler: templates/handler.hello
+     events: 
+       - http: true
+         x-azure-settings:
+           webHookType : gitHub
+  #eventHubjs: 
+     #handler: templates/handler.hello
+     #events: 
+       #- eventHub:
+       #  x-azure-settings:
+       #   connection : AppSettingSetViaArmTemplate
      
  
