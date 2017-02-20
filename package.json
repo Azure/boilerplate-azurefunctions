@@ -9,6 +9,6 @@
   "author": "serverless.com",
   "license": "MIT",
    "dependencies": {
-    "serverless-azure-cloudfunctions": "git+https://github.com/pragnagopa/serverless-azure-functions.git#dev"
+    "serverless-azure-functions": "git+https://github.com/serverless/serverless-azure-functions.git"
   }
 }
