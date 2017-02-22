@@ -16,7 +16,10 @@ module.exports.hello = function (context, req) {
     context.done(null, res);
 };
 
-module.exports.helloQueue = function (context, myQueueItem) {
-    context.log('JavaScript queue trigger function processed work item', myQueueItem);
+module.exports.helloQueue = function (context, queueItem) {
+    context.log('JavaScript queue trigger function processed work item', queueItem);
+    context.bindings.blobOut = {
+        "hello": "world"
+    }
     context.done();
 };
