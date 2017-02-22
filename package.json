@@ -1,7 +1,7 @@
 {
   "name": "boilerplate-azurefunctions",
   "version": "0.1.0",
-  "description": "",
+  "description": "A boilerplate to get started using the serverless-azure-functions plugin for serverless framework",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,6 +9,6 @@
   "author": "serverless.com",
   "license": "MIT",
    "dependencies": {
-    "serverless-azure-functions": "git+https://github.com/serverless/serverless-azure-functions.git"
+    "serverless-azure-functions": "*"
   }
 }

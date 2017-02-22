@@ -1,4 +1,4 @@
-service: azure-functions-app
+service: azure-functions-app1234
 
 provider:
   name: azure
@@ -20,34 +20,23 @@ package:
 
 functions:
   httpjs: 
-     handler: templates/handler.hello
+     handler: handler.hello
      events: 
        - http: true
          x-azure-settings:
            authLevel : anonymous
            
   queuejs: 
-     handler: templates/handler.helloQueue
+     handler: handler.helloQueue
      events: 
-       - queue: YourQueueName
+       - queue: SampleQueue
          x-azure-settings:
-           connection : StorageAppSettingName
+           name: queueItem
+           connection : AzureWebJobsStorage
        - blob:
          x-azure-settings:
-           name: bindingName
-           direction: in
-   
-  httpwebhookjs: 
-     handler: templates/handler.hello
-     events: 
-       - http: true
-         x-azure-settings:
-           webHookType : gitHub
-  #eventHubjs: 
-     #handler: templates/handler.hello
-     #events: 
-       #- eventHub:
-       #  x-azure-settings:
-       #   connection : AppSettingSetViaArmTemplate
+           name: blobOut
+           direction: out
+           connection : AzureWebJobsStorage
      
  
