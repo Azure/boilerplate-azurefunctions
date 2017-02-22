@@ -8,8 +8,9 @@ This is a quick boilerplate for getting started with the serverless-azure-functi
 
 1. Recommend using Node v6.5.0
 1. Install the serverless tooling - `npm i -g serverless`
-1. Clone gitrepo: `git clone https://github.com/pragnagopa/boilerplate-azurefunctions.git`
-2. npm install
+1. Create boilerplate (change `my-app` to whatever you'd prefer): `serverless install --url https://github.com/pragnagopa/boilerplate-azurefunctions.git --name my-app`
+1. `cd my-app`
+2. `npm install`
 
 ### 2. Set up credentials
 
@@ -52,10 +53,10 @@ We'll set up an Azure Subscription and our service principal. You can learn more
 
     This should return an object which has the `servicePrincipalNames` property on it and an ObjectId. Save the Object Id and one of the names in the array and the password you provided for later. If you need to look up your service principal later, you can use `azure ad sp -c <name>` where `<name>` is the name provided originally. Note that the `<name>` you provided is not the name you'll provide later, it is a name in the `servicePrincipalNames` array.
 
-    Then grant the SP contributor access with the ObjectId and Subscription
+    Then grant the SP contributor access with the ObjectId
 
     ```bash
-    azure role assignment create --objectId <objectIDFromCreateStep> -o Contributor -c <subscription>
+    azure role assignment create --objectId <objectIDFromCreateStep> -o Contributor
     ```
 
 6. Set up environment variables
