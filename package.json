@@ -8,7 +8,7 @@
   },
   "author": "serverless.com",
   "license": "MIT",
-   "dependencies": {
+  "devDependencies": {
     "serverless-azure-functions": "*"
   }
 }
