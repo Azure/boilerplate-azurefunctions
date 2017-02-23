@@ -8,7 +8,7 @@ This is a quick boilerplate for getting started with the serverless-azure-functi
 
 1. Recommend using Node v6.5.0
 1. Install the serverless tooling - `npm i -g serverless`
-1. Create boilerplate (change `my-app` to whatever you'd prefer): `serverless install --url https://github.com/Azure/boilerplate-azurefunctions.git --name my-app`
+1. Create boilerplate (change `my-app` to whatever you'd prefer): `serverless install --url https://github.com/Azure/boilerplate-azurefunctions --name my-app`
 1. `cd my-app`
 2. `npm install`
 
