@@ -23,7 +23,7 @@ We'll set up an Azure Subscription and our service principal. You can learn more
     Azure comes with a [free trial](https://azure.microsoft.com/en-us/free/) that includes $200 of free credit. 
 
 
-2. . Get the Azure CLI
+2. Get the Azure CLI
 
     ```
     npm i -g azure-cli
@@ -51,7 +51,7 @@ We'll set up an Azure Subscription and our service principal. You can learn more
     azure ad sp create -n <name> -p <password>
     ```
 
-    This should return an object which has the `servicePrincipalNames` property on it and an ObjectId. Save the Object Id and one of the names in the array and the password you provided for later. If you need to look up your service principal later, you can use `azure ad sp -c <name>` where `<name>` is the name provided originally. Note that the `<name>` you provided is not the name you'll provide later, it is a name in the `servicePrincipalNames` array.
+    This should return an object which has the `servicePrincipalNames` property on it and an ObjectId. Save the Object Id and one of the names in the array and the password you provided for later. If you need to look up your service principal later, you can use `azure ad sp show -c <name>` where `<name>` is the name provided originally. Note that the `<name>` you provided is not the name you'll provide later, it is a name in the `servicePrincipalNames` array.
 
     Then grant the SP contributor access with the ObjectId
 
